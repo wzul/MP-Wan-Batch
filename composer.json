@@ -1,0 +1,7 @@
+{
+    "require": {
+        "billplz/billplz-api": "^3.7",
+        "guzzlehttp/guzzle": "^6.3",
+        "phpoffice/phpspreadsheet": "^1.2"
+    }
+}
