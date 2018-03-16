@@ -16,9 +16,6 @@ echo PHP_EOL;
 $filename = $argv[1];
 $api_key = $argv[2];
 
-//$filename = 'mp-alegion.csv';
-//$api_key = '4e49de80-1670-4606-84f8-2f1d33a38670';
-
 echo 'Reading file contents...'.PHP_EOL.PHP_EOL;
 
 $filecsv = file_get_contents($filename);
