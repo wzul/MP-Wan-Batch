@@ -49,7 +49,7 @@ foreach ($array as $data) {
         'identity_number'=>$data[2],
         'name' => $data[3],
         'description' => $data[5],
-        'total' => $data[4] * 100
+        'total' => preg_replace("/[^0-9.]/","",$data[4]) * 100
     );
     $optional = array(
         'email' => $data[6]
