@@ -50,4 +50,4 @@ foreach ($bank_account as $bank) {
     $response[] = $billplz->getBankAccountIndex(array('account_numbers'=>$bank));
 }
 
-echo '<pre>' .print_r($response, true).'</pre>';
+echo print_r($response, true);
