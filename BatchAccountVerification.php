@@ -51,7 +51,13 @@ $response = array();
 echo 'Sending to Billplz API...'. PHP_EOL.PHP_EOL;
 
 foreach ($bank_account as $bank) {
-    $response[] = $billplz->toArray($billplz->createBankAccount($bank));
+    $account_info = $billplz->toArray($billplz->getBankAccount($bank['acc_no']));
+
+    if ($account_info[1]['status'] !== 'pending' && $account_info[1]['status'] !== 'verified') {
+        $response[] = $billplz->toArray($billplz->createBankAccount($bank));
+    } else {
+        $response[] = [200,['status'=>'account_already_verified']];
+    }
 }
 
 echo 'Writing to csv file...'. PHP_EOL.PHP_EOL;
