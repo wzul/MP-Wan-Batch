@@ -43,12 +43,12 @@ foreach ($array as $data) {
     }
 
     $parameter = array(
-        'mass_payment_instruction_collection_id' => $data[9],
-        'bank_code'=> $data[0],
-        'bank_account_number' => $data[1],
-        'identity_number'=>$data[2],
-        'name' => $data[3],
-        'description' => $data[5],
+        'mass_payment_instruction_collection_id' => trim($data[9]),
+        'bank_code'=> trim($data[0]),
+        'bank_account_number' => trim($data[1]),
+        'identity_number'=>trim($data[2]),
+        'name' => trim($data[3]),
+        'description' => trim($data[5]),
         'total' => strval(preg_replace("/[^0-9.]/", "", $data[4]) * 100)
     );
     $optional = array(
