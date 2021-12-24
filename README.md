@@ -8,6 +8,8 @@ Only support CSV file with UTF-8 encoding. Make sure to have columns as per exam
 
 ## Execution
 
+Ensure to set unique Reference ID before the execution. This to avoid duplication.
+
 ### Performing Mass Payment Instructions
 
 ```bash
