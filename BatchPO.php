@@ -25,7 +25,7 @@ foreach ($array as $data) {
         'mass_payment_instruction_collection_id' => trim($data[9]),
         'bank_code' => trim($data[0]),
         'bank_account_number' => trim($data[1]),
-        'identity_number' => trim($data[2]),
+        // 'identity_number' => trim($data[2]),
         'name' => trim($data[3]),
         'description' => trim($data[5]),
         'total' => strval(preg_replace("/[^0-9.]/", "", $data[4]) * 100)
@@ -49,7 +49,7 @@ echo 'Sending to Billplz API...' . PHP_EOL . PHP_EOL;
 
 foreach ($bank_account as $bank) {
     if (empty($bank['id'])) {
-        $response[] = create_mpi(array_merge($bank['parameter'], $bank['optional']));
+        $response[] = create_po(array_merge($bank['parameter'], $bank['optional']));
     } else {
         $response[] = array(200, array('id' => $bank['id'], 'status' => 'duplicate'));
     }
@@ -66,7 +66,7 @@ for ($i = 0; $i < sizeof($response); $i++) {
     }
 }
 
-echo "Generating Success Files... (success_{$filename})" . PHP_EOL;
+echo "Generating Success Files... (po_success_{$filename})" . PHP_EOL;
 
 $fp = fopen('success_' . $filename, 'w');
 foreach ($array as $fields) {
@@ -77,7 +77,7 @@ foreach ($array as $fields) {
 fclose($fp);
 echo 'Success...' . PHP_EOL . PHP_EOL;
 
-echo "Generating Failed Files... (failed_{$filename})" . PHP_EOL;
+echo "Generating Failed Files... (po_failed_{$filename})" . PHP_EOL;
 
 $printheader = true;
 $fp = fopen('failed_' . $filename, 'w');

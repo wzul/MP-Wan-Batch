@@ -2,10 +2,29 @@
 
 Make batch request to Billplz API from CSV files.
 
-Note: Before proceed, make sure the csv files encoding is set to UTF-8 only!
+## Limitation
 
-Example:
+Only support CSV file with UTF-8 encoding. Make sure to have columns as per example.
+
+## Execution
+
+### Performing Mass Payment Instructions
 
 ```bash
-    php BatchAccountVerification.php list.csv xxxx-xxxxx-xxxxx-xxxxxx
+    php BatchMPI.php list.csv <api-key-here> <production/sandbox>
+    # example: php BatchMPI.php list.csv apikey production
+```
+
+### Performing Batch Account Verification
+
+```bash
+    php BatchAccountVerification.php list_need_verification.csv <api-key-here> <production/sandbox>
+    # example: php BatchAccountVerification.php list_need_verification.csv apikey production
+```
+
+### Performing Batch Payment Orders
+
+```bash
+    php BatchPO.php list.csv <api-key-here> <production/sandbox>
+    # example: php BatchPO.php list.csv apikey production
 ```
