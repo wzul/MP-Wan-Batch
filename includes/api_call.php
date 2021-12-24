@@ -31,6 +31,8 @@ function create_mpi($parameter)
     $header = curl_getinfo($process, CURLINFO_HTTP_CODE);
     curl_close($process);
 
+    // array(200, array('id' => $bank['id'], 'status' => 'duplicate'))
+
     return array($header, json_decode($return, true));
 }
 
